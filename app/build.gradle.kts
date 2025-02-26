@@ -1,16 +1,17 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("kotlin-kapt")
 }
 
 android {
     namespace = "banquemisr.challenge05.movieApp"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "banquemisr.challenge05.movieApp"
         minSdk = 26
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -57,6 +58,41 @@ dependencies {
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
+    // Retrofit
+    implementation (libs.retrofit)
+    implementation (libs.converter.gson)
+    implementation (libs.okhttp)
+    implementation (libs.logging.interceptor)
+
+    // coil image loader
+    implementation(libs.coil.compose)
+
+    // Compose dependencies
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7")
+    implementation ("androidx.navigation:navigation-compose:2.8.7")
+    implementation ("com.google.accompanist:accompanist-flowlayout:0.23.1")
+    implementation ("androidx.compose.material:material-icons-extended:1.7.8")
+
+    // Coroutines
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+
+    // Coroutine Lifecycle Scopes
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7")
+    implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.8.7")
+
+    val koin = "3.5.2-RC1"
+    //koin
+
+
+    implementation("io.insert-koin:koin-android:$koin")
+    implementation("io.insert-koin:koin-androidx-navigation:$koin")
+    implementation("io.insert-koin:koin-core-coroutines:$koin")
+    implementation("io.insert-koin:koin-ktor:$koin")
+    implementation ("io.insert-koin:koin-androidx-compose:$koin")
+
+
+    implementation ("com.airbnb.android:lottie-compose:5.0.3")
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     testImplementation(libs.junit)
@@ -66,4 +102,17 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    testImplementation ("com.google.truth:truth:1.1.3")
+    testImplementation ("junit:junit:4.13.2")
+    testImplementation ("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+    testImplementation ("android.arch.core:core-testing:1.1.1")
+    testImplementation ("app.cash.turbine:turbine:0.7.0")
+    androidTestImplementation ("androidx.test.ext:junit:1.2.1")
+    androidTestImplementation ("androidx.test.espresso:espresso-core:3.6.1")
+    androidTestImplementation ("androidx.compose.ui:ui-test-junit4:1.7.2")
+    androidTestImplementation ("com.google.truth:truth:1.1.3")
+    androidTestImplementation("com.google.dagger:hilt-android-testing:2.38.1")
+    kaptAndroidTest("com.google.dagger:hilt-android-compiler:2.46")
+    debugImplementation ("androidx.compose.ui:ui-tooling:1.7.2")
 }
