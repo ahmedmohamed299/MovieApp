@@ -1,0 +1,33 @@
+package banquemisr.challenge05.movieApp.navigation
+
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Done
+import androidx.compose.material.icons.outlined.LocalActivity
+import androidx.compose.material.icons.outlined.Theaters
+import androidx.compose.ui.graphics.vector.ImageVector
+
+
+sealed class MovieScreenList(
+    val route: String,
+    val title: String,
+    val icon: ImageVector = Icons.Default.Done
+) {
+
+
+    object PlayingNow : MovieScreenList(
+        route = "playing_now",
+        title = "Playing Now",
+        icon = Icons.Outlined.Theaters,
+    )
+
+    object MovieDetail : MovieScreenList(
+        route = "movie_detail",
+        title = "Movie Details"
+    )
+
+//    object SplashScreen : MovieScreenList(
+//        route = "splash_screen",
+//        title = "Splash Screen"
+//    )
+
+}
